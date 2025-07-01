@@ -1,4 +1,3 @@
-
 package controlador;
 
 public class Interesado {
