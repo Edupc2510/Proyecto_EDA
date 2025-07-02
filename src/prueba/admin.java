@@ -31,7 +31,7 @@ public class admin {
         admin.registrarMovimiento("EXP001", s2);
 
         // Finalizar trámite
-        Tramite t1 = new Tramite(e1);
+        Seguimiento t1 = new Seguimiento(e1);
         t1.iniciarTramite(new FechaHora(2025,7,1,9,30,0));
         t1.finalizarTramite(new FechaHora(2025,7,1,11,0,0), "CertEstudios-EXP001.pdf");
         admin.registrarFinalizacionTramite("EXP001", t1);

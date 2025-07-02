@@ -243,7 +243,7 @@ public class AppGUI {
         );
         FechaHora fin = inicio;
         String docFin = JOptionPane.showInputDialog("Documento final generado:");
-        Tramite t = new Tramite(exp);
+        Seguimiento t = new Seguimiento(exp);
         t.iniciarTramite(inicio);
         t.finalizarTramite(fin, docFin);
         admin.registrarFinalizacionTramite(id, t);

@@ -7,27 +7,25 @@ public class Tramite {
     private FechaHora fin;
     private Lista<String> documentos;
     private Expediente expediente;
-    
-    // Constructor
+    private Seguimiento seguimiento;
+
     public Tramite(Expediente expediente) {
         this.expediente = expediente;
         this.documentos = new Lista<>();
+        this.seguimiento = new Seguimiento();
         this.inicio = null;
         this.fin = null;
     }
-    
-    // Iniciar el trámite
+
     public void iniciarTramite(FechaHora inicio) {
         this.inicio = inicio;
     }
 
-    // Finalizar el trámite y agregar un documento 
     public void finalizarTramite(FechaHora fin, String documento) {
         this.fin = fin;
         this.documentos.agregar(documento);
     }
 
-    // Getters y Setters
     public FechaHora getInicio() {
         return inicio;
     }
@@ -59,5 +57,14 @@ public class Tramite {
     public void setExpediente(Expediente expediente) {
         this.expediente = expediente;
     }
-        
+
+    public Seguimiento getSeguimiento() {
+        return seguimiento;
+    }
+
+    public void setSeguimiento(Seguimiento seguimiento) {
+        this.seguimiento = seguimiento;
+    }
+    
+    
 }
