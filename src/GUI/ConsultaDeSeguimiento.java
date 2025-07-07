@@ -102,17 +102,23 @@ public class ConsultaDeSeguimiento extends javax.swing.JFrame {
         @Override
         public Component getTableCellRendererComponent(JTable table, Object value,
             boolean isSelected, boolean hasFocus, int row, int column) {
-
             super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
 
             setHorizontalAlignment(SwingConstants.CENTER);
             setFont(openSans);
-            setBackground(Color.WHITE);
-            setForeground(Color.BLACK);
+
+            if (isSelected) {
+                setBackground(new Color(239, 111, 35)); // naranja
+                setForeground(Color.WHITE);
+            } else {
+                setBackground(Color.WHITE);
+                setForeground(Color.BLACK);
+            }
 
             return this;
         }
-        };
+    };
+
         
         for (int i = 0; i < Ttramites.getColumnModel().getColumnCount(); i++) {
         Ttramites.getColumnModel().getColumn(i).setCellRenderer(customRenderer);
