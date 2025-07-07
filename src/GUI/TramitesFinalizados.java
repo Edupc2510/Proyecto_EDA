@@ -334,11 +334,13 @@ public class TramitesFinalizados extends javax.swing.JFrame {
             
             if(e.getInteresado().getDni().equals(dni)){
             encontrado = true;
+            String fechaFin = (t.getFin() != null) ? t.getFin().toString() : "No finalizado";
+
             modelo.addRow(new Object[]{
                 e.getId(),
                 t.getExpediente().getAsunto(),
                 t.getInicio().toString(),
-                t.getFin().toString(),
+                fechaFin,
                 t.getExpediente().getPrioridad()});
             }
         }

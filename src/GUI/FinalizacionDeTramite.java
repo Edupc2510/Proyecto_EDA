@@ -623,27 +623,31 @@ public class FinalizacionDeTramite extends javax.swing.JFrame {
                 Lista<String> documentosFinales = new Lista<>();
                 String doc = nombreDoc.getText().trim();
                 if (!doc.isEmpty() && !doc.matches("^[A-Za-zÁÉÍÓÚáéíóúÑñ ,]+$")) {
-                    alertaDoc.setForeground(new Color(239,111,35));
-                    docIcon.setForeground(new Color(239,111,35));
-                    while (!aux.esVacia()) cola.encolar(aux.desencolar());
+                    alertaDoc.setForeground(new Color(239, 111, 35));
+                    docIcon.setForeground(new Color(239, 111, 35));
+                    aux.encolar(exp);
+                    while (!aux.esVacia()) {
+                        cola.encolar(aux.desencolar());
+                    }
                     return;
-                } else {
-                    alertaDoc.setForeground(Color.WHITE);
-                    docIcon.setForeground(Color.WHITE);
                 }
-                String[] docs = doc.split(",");
-                for (String d : docs) {
-                    String limpio = d.trim();
-                    if (!limpio.isEmpty()) {
-                        documentosFinales.agregar(limpio);
+                alertaDoc.setForeground(Color.WHITE);
+                docIcon.setForeground(Color.WHITE);
+                if (!doc.isEmpty()) {
+                    String[] docs = doc.split(",");
+                    for (String d : docs) {
+                        String limpio = d.trim();
+                        if (!limpio.isEmpty()) {
+                            documentosFinales.agregar(limpio);
+                        }
                     }
                 }
                 documentosFinales.agregar("Resolución Final");
-                // Finalizar el trámite
+
                 tramite.finalizarTramite(fechaFinal, documentosFinales);
                 System.out.println("Documentos generados: ");
                 documentosFinales.mostrar();
-               
+  
                 break; 
 
             } else {
